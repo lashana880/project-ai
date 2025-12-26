@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Advanced sentiment analysis tool with emotion detection and sentence breakdown">
+    <title>Sentiment Analysis App - Discover Emotional Tone</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <header>
+            <h1>Sentiment Analysis</h1>
+            <p>Discover the emotional tone of your text instantly with AI-powered analysis.</p>
+        </header>
+
+        <main class="card">
+            <div class="input-group">
+                <textarea id="textInput" placeholder="Type or paste your text here... (Ctrl+Enter to analyze)"
+                    rows="5"></textarea>
+            </div>
+
+            <div class="button-group">
+                <button id="analyzeBtn">🔍 Analyze Sentiment</button>
+            </div>
+
+            <div id="result" class="result-container hidden">
+                <div class="sentiment-badge" id="sentimentBadge">Neutral</div>
+
+                <div class="metrics">
+                    <div class="metric">
+                        <span class="label">Polarity</span>
+                        <span class="value" id="polarityValue">0.00</span>
+                    </div>
+                    <div class="metric">
+                        <span class="label">Subjectivity</span>
+                        <span class="value" id="subjectivityValue">0.00</span>
+                    </div>
+                </div>
+
+                <!-- Detailed emotions section -->
+                <div id="emotionsContainer" class="emotions-container hidden">
+                    <h3>Detected Emotions</h3>
+                    <div id="emotionsList" class="emotions-list">
+                        <!-- Emotion bars will be injected here -->
+                    </div>
+                </div>
+
+                <!-- Sentence breakdown section -->
+                <div id="sentencesContainer" class="sentences-container hidden">
+                    <h3>Sentence Breakdown</h3>
+                    <div id="sentencesList" class="sentences-list">
+                        <!-- Sentences will be injected here -->
+                    </div>
+                </div>
+
+                <p id="analysisText" class="analysis-text"></p>
+            </div>
+
+            <div class="history-section">
+                <h2>Recent History</h2>
+                <div id="historyList" class="history-list">
+                    <!-- History items will be added here -->
+                    <p class="no-history">No history yet. Start by analyzing some text!</p>
+                </div>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy; 2024 Sentiment Analysis Project | Built with ❤️ and AI</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+
+</html>
