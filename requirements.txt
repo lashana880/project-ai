@@ -2,3 +2,6 @@ flask
 textblob
 nltk
 vaderSentiment
+scikit-learn
+pandas
+joblib
